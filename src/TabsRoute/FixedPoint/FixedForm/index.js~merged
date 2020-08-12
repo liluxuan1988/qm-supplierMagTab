@@ -1,0 +1,194 @@
+import React, { Component } from "react";
+ import {Grid} from "ac-gridcn";
+<<<<<<< HEAD
+import {Form, Icon, Loading, Panel} from 'tinper-bee';
+import AcHeader from "ac-header";
+import {actions} from "mirrorx";
+=======
+import {Form, Icon, Panel} from 'tinper-bee';
+import AcHeader from "ac-header";
+>>>>>>> remotes/origin/hyyMaster
+const dataNumObj = {
+    "5": 0,
+    "10": 1,
+    "15": 2,
+    "20": 3,
+    "25": 4,
+    "50": 5,
+    "1": 6,
+}
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> remotes/origin/hyyMaster
+class FixedForm extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+         };
+    }
+    /**
+     * 加载完成
+     */
+    componentDidMount() {
+     }
+
+    gridColumn = [
+        { title:"零件号",dataIndex:"partNum" ,key:"partNum",width:300},
+        { title:"零件名称",dataIndex:"partName" ,key:"partName",width:400},
+        { title:"材料组代码",dataIndex:"materialgroupCode" ,key:"materialgroupCode",width:200},
+        { title:"定点车型",dataIndex:"fixedPointVehicle" ,key:"fixedPointVehicle",width:300},
+        { title:"定点时间",dataIndex:"fixedPointTime" ,key:"fixedPointTime",width:250},
+         { title:"RFQ编号",dataIndex:"rfqId" ,key:"rfqId",width:250 ,textAlign:'right', // 靠右对齐},
+
+},
+    ];
+<<<<<<< HEAD
+=======
+
+    data  = [
+        {
+            partNum:"CQ2216313F6",
+            partName:"十字槽盘头自攻螺钉和平垫圈组合件",
+            materialgroupCode:"M030",
+            fixedPointVehicle:"E115",
+            fixedPointTime:"2019-07-03",
+            rfqId:"2019063379",
+        },{
+            partNum:"CQ2214816",
+            partName:"十字槽盘头自攻螺钉",
+            materialgroupCode:"M030",
+            fixedPointVehicle:"E115",
+            fixedPointTime:"2019-07-03",
+            rfqId: "2019063379",
+        },{
+            partNum:"CQ2234816F6",
+            partName:"内六角花形盘头凸缘自攻螺钉",
+            materialgroupCode:"M030",
+            fixedPointVehicle:"C229",
+            fixedPointTime:"2019-07-03",
+            rfqId:"2019033075",
+        }
+    ];
+
+
+>>>>>>> remotes/origin/hyyMaster
+    openSupplier = () => {
+        this.props.DemoTable.getChildrenMsg(this, true)
+    }
+
+    /**
+     * 列表选中行
+     */
+    getSelectedDataFunc = (selectData, record, index, newData) => {
+        this.selectList = selectData;
+    }
+
+<<<<<<< HEAD
+    /**
+     * 页码修改
+     * @param pageIndex
+     */
+    pageIndexChange = (pageIndex) => {
+        actions.supplierRouter.setPaginationCondition({
+            pageIndex: pageIndex - 1,
+            pageSize: this.props.paginationCondition.pageSize,setType:"getSupplierPartData",
+            supplierCode:this.props.supplierCode
+
+        });
+    }
+    /**
+     * 页大小修改
+     * @param {*} index 页码
+     * @param {*} num 页大小
+     */
+    pageSizeChange = (index, num) => {
+        actions.supplierRouter.setPaginationCondition({
+            pageIndex: '0',
+            pageSize: num,
+            setType:"getSupplierPartData",
+            supplierCode:this.props.supplierCode
+
+        });
+        this.setState({
+            selectedIndex: 0
+        })
+=======
+    freshData = (pageIndex) => {
+        console.log('跳转至第 ', pageIndex, ' 页');
+    }
+    onDataNumSelect = (index, value) => {
+        console.log('index：', index, ' value：', value);
+>>>>>>> remotes/origin/hyyMaster
+    }
+    onClick = () => {
+        this.setState({
+            selectedRow: function() {}
+        });
+    };
+
+    render() {
+<<<<<<< HEAD
+        const {SupplierPartList = {} ,showLoading } = this.props;
+        const {list, pageIndex, pageSize, totalPage, total} = SupplierPartList;
+=======
+        const {getSupplierPartList = {}  } = this.props;
+        const {list, pageIndex, pageSize, totalPage, total} = getSupplierPartList;
+>>>>>>> remotes/origin/hyyMaster
+
+        let paginationObj = {
+            activePage: pageIndex,//当前页
+            items: totalPage,
+            total,//总共多少条
+<<<<<<< HEAD
+            freshData: this.pageIndexChange,//点击下一页刷新的数据
+            onDataNumSelect: this.pageSizeChange, //每页大小改变触发的事件
+=======
+            freshData: this.freshData,//点击下一页刷新的数据
+            onDataNumSelect: this.onDataNumSelect, //每页大小改变触发的事件
+>>>>>>> remotes/origin/hyyMaster
+            showJump: true,
+            disabled: false,//分页条禁用状态
+            // horizontalPosition: 'center',
+            dataNum: dataNumObj[pageSize],// 分页条数选择
+<<<<<<< HEAD
+        }
+        return (
+            <div>
+                <Loading fullScreen showBackDrop={true} show={showLoading}/>
+                <Grid
+=======
+
+        }
+        return (
+             <Grid
+>>>>>>> remotes/origin/hyyMaster
+                 ref={(ref) => this.grid = ref}
+                rowKey={r => r.id ? r.id : r.key}
+                columns={this.gridColumn}
+                data={list}
+                getSelectedDataFunc={this.getSelectedDataFunc}
+                paginationObj={paginationObj}//分页数据
+                headerScroll={true} // 双向滚动条
+                multiSelect={true}
+<<<<<<< HEAD
+                columnFilterAble={false}//下拉隐藏
+                showHeaderMenu ={false}   //关闭列过滤面板。默认显示。
+                // onRowClick={this.onSelect}
+                bodyDisplayInRow={true}
+            />
+            </div>
+=======
+                 columnFilterAble={false}//下拉隐藏
+                 showHeaderMenu ={false}   //关闭列过滤面板。默认显示。
+                // onRowClick={this.onSelect}
+                bodyDisplayInRow={true}
+            />
+>>>>>>> remotes/origin/hyyMaster
+         );
+    }
+}
+
+ export default Form.createForm()(FixedForm);
