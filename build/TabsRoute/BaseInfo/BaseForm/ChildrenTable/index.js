@@ -74,7 +74,7 @@ var ChinldTable = function (_Component) {
 
         var _this = _possibleConstructorReturn(this, _Component.call(this, props));
 
-        _this.defColumns = [{ title: "序号", dataIndex: "SupplierTab.js", key: "SupplierTab.js", width: 80,
+        _this.defColumns = [{ title: "序号", dataIndex: "index", key: "index", width: 80,
             render: function render(text, record, index) {
                 return index + 1;
             }

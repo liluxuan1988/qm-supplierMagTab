@@ -1,6 +1,6 @@
 {
   "name": "qm-suppliermagtab",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "tab",
   "main": "./build/index.js",
   "scripts": {
